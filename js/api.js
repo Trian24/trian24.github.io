@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import * as addHTML from './addhtml.js'
 import * as db from './db.js'
+import * as loading from './loading.js'
 
 const base_url = 'https://api.football-data.org/v2/'
 const api_key = '1ff68d3cf51149119262508cfbfa6b9c'
@@ -18,7 +19,9 @@ export function getStanding () {
     caches.match(base_url + `competitions/${id_league}/standings`)
       .then(function (response) {
         if (response) {
-          response.json().then(addHTML.Home)
+          response.json()
+            .then(addHTML.Home)
+            .then(loading.Stop())
         }
       })
   }
@@ -27,6 +30,7 @@ export function getStanding () {
     .then(status)
     .then(json)
     .then(addHTML.Home)
+    .then(loading.Stop())
     .catch(error)
 }
 
@@ -35,7 +39,9 @@ export function getTeams () {
     caches.match(base_url + `competitions/${id_league}/standings`)
       .then(function (response) {
         if (response) {
-          response.json().then(addHTML.Teams)
+          response.json()
+            .then(addHTML.Teams)
+            .then(loading.Stop())
         }
       })
   }
@@ -44,6 +50,7 @@ export function getTeams () {
     .then(status)
     .then(json)
     .then(addHTML.Teams)
+    .then(loading.Stop())
     .catch(error)
 }
 
@@ -61,6 +68,7 @@ export function getTeambyId () {
             })
           }
         })
+        .then(loading.Stop())
     }
 
     fetch(base_url + `teams/${idParam}`, options)
@@ -70,6 +78,7 @@ export function getTeambyId () {
         addHTML.TeamId(data)
         resolve(data)
       })
+      .then(loading.Stop())
       .catch(error)
   })
 }
@@ -80,15 +89,18 @@ export function getSavedTeam () {
       console.log(teams)
       addHTML.SavedTeams(teams)
     })
+    .then(loading.Stop())
 }
 
 export function getSavedTeamById () {
   const urlParams = new URLSearchParams(window.location.search)
   const idParam = urlParams.get('id')
-  db.getById(idParam).then((data) => {
-    console.log(data)
-    addHTML.SavedTeamId(data)
-  })
+  db.getById(idParam)
+    .then((data) => {
+      console.log(data)
+      addHTML.SavedTeamId(data)
+    })
+    .then(loading.Stop())
   return idParam
 }
 

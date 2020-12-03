@@ -1,7 +1,9 @@
 import * as api from './api.js'
 import * as db from './db.js'
+import * as loading from './loading.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+  loading.Start()
   const urlParams = new URLSearchParams(window.location.search)
   const isFromSaved = urlParams.get('saved')
   const btnSave = document.getElementById('save')

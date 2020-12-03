@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 import * as api from './api.js'
+import * as loading from './loading.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+  loading.Start()
   const elems = document.querySelectorAll('.sidenav')
   M.Sidenav.init(elems)
   let page = window.location.hash.substr(1)
@@ -68,4 +70,5 @@ function loadPage (page) {
   }
   xhttp.open('GET', `pages/${page}.html`, true)
   xhttp.send()
+  loading.Stop()
 }
