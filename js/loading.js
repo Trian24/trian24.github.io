@@ -1,4 +1,4 @@
-const loading = document.getElementById('loading-container')
+const loading = document.getElementById('progress-bar')
 
 export function Start () {
   console.log('Loading starting')

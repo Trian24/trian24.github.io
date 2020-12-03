@@ -1,6 +1,6 @@
 /* eslint-disable prefer-regex-literals */
 /* eslint-disable no-undef */
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.0.0/workbox-sw.js')
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.0.0/workbox-sw.js')
 
 if (workbox) { console.log('Workbox berhasil dimuat') } else { console.log('Workbox gagal dimuat') }
 

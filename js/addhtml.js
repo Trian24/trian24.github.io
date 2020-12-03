@@ -1,3 +1,5 @@
+import * as loading from './loading.js'
+
 export function Home (data) {
   let articleHTML = ''
   articleHTML += `
@@ -57,6 +59,7 @@ export function Home (data) {
   })
   articleHTML += '</table></div></div>'
   document.getElementById('home').innerHTML = articleHTML
+  loading.Stop()
 }
 
 export function Teams (data) {
@@ -92,6 +95,7 @@ export function Teams (data) {
   })
   html += '</div>'
   document.getElementById('teams').innerHTML = html
+  loading.Stop()
 }
 
 export function SavedTeams (data) {
@@ -124,6 +128,7 @@ export function SavedTeams (data) {
   html += '</div>'
   console.log(document.getElementById('savedteams'))
   document.getElementById('savedteams').innerHTML = html
+  loading.Stop()
 }
 
 export function TeamId (data) {
@@ -161,6 +166,7 @@ export function TeamId (data) {
   console.log('Page team id')
   document.getElementById('body-content').innerHTML = html
   console.log('Mengubah page team id')
+  loading.Stop()
 }
 
 export function SavedTeamId (data) {
@@ -198,4 +204,5 @@ export function SavedTeamId (data) {
   console.log('Page team id')
   document.getElementById('body-content').innerHTML = html
   console.log('Mengubah page team id')
+  loading.Stop()
 }
