@@ -21,6 +21,7 @@ workbox.precaching.precacheAndRoute([
   { url: '/js/idb.js', revision: '1' },
   { url: '/js/pushnotif.js', revision: '1' },
   { url: '/js/addhtml.js', revision: '1' },
+  { url: '/js/loading.js', revision: '1' },
   { url: '/js/teambutton.js', revision: '1' },
   { url: '/img/no-image.png', revision: '1' },
   { url: '/img/icons/icon-96x96.png', revision: '1' },

@@ -8,3 +8,6 @@ js/.eslintrc.json
 # Ignore node package json
 package-lock.json
 package.json
+
+# Ignore host link file
+hosting.txt
